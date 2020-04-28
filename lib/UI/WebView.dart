@@ -116,6 +116,7 @@ class _WebViewState extends State<WebView> {
           child: const Center(
             child: CircularProgressIndicator(),
           ),
-        ));
+        )
+    );
   }
 }
