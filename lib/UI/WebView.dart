@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
 class WebView extends StatefulWidget {
@@ -62,6 +63,10 @@ class _WebViewState extends State<WebView> {
           // give the appbar shadows
           iconTheme: IconThemeData(color: Colors.white),
           actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.close),
+              onPressed: () => SystemNavigator.pop(),
+            )
 //            InkWell(
 //              child: Icon(Icons.close),
 //              onTap: () =>{
