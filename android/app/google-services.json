@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "541250899",
+    "firebase_url": "https://samedayrush-app.firebaseio.com",
+    "project_id": "samedayrush-app",
+    "storage_bucket": "samedayrush-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:541250899:android:c3faf00b1d167e89acfda6",
+        "android_client_info": {
+          "package_name": "com.sstechcanada.samedayrushprint"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "541250899-pugvrd7ld2abumo19sakqlob2l658qoa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXrYBkzjIhKJpTHylPkc1F0AFBQQ5yVSA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "541250899-pugvrd7ld2abumo19sakqlob2l658qoa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
