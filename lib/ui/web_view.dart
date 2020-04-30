@@ -46,76 +46,37 @@ class _WebViewState extends State<WebView> {
 
   @override
   Widget build(BuildContext context) {
-    return WebviewScaffold(
-        url: url,
-        withJavascript: true,
-        // run javascript
-        withZoom: false,
-        // if you want the user zoom-in and zoom-out
-        hidden: true,
-        // put it true if you want to show CircularProgressIndicator while waiting for the page to load
 
-        appBar: AppBar(
-          title: Text("Same Day Rush Printing"),
-          centerTitle: false,
-          elevation: 1,
-          // give the appbar shadows
-          iconTheme: IconThemeData(color: Colors.white),
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.close),
-              onPressed: () => SystemNavigator.pop(),
-            )
-//            InkWell(
-//              child: Icon(Icons.close),
-//              onTap: () =>{
-//                SystemNavigator.pop()
-//              }
-//                // flutterWebviewPlugin.reloadUrl(); // if you want to reload another url
-//            ),
-//
-//            InkWell(
-//              child: Icon(Icons.close),
-//              onTap: (){
-//                flutterWebviewPlugin.stopLoading(); // stop loading the url
-//              },
-//            ),
-//
-//            InkWell(
-//              child: Icon(Icons.remove_red_eye),
-//              onTap: (){
-//                flutterWebviewPlugin.show(); // appear the webview widget
-//              },
-//            ),
-//
-//            InkWell(
-//              child: Icon(Icons.close),
-//              onTap: (){
-//                flutterWebviewPlugin.hide(); // hide the webview widget
-//              },
-//            ),
-//
-//            InkWell(
-//              child: Icon(Icons.arrow_back),
-//              onTap: (){
-//                flutterWebviewPlugin.goBack(); // for going back
-//              },
-//            ),
-//
-//            InkWell(
-//              child: Icon(Icons.forward),
-//              onTap: (){
-//                flutterWebviewPlugin.goForward(); // for going forward
-//              },
-//            ),
-          ], // make the icons colors inside appbar with white color
-        ),
-        initialChild: Container(
-          color: Colors.white,
-          child: const Center(
-            child: CircularProgressIndicator(),
-          ),
-        )
+    return SafeArea(
+      child: WebviewScaffold(
+          url: url,
+          withJavascript: true,
+          // run javascript
+          withZoom: false,
+          // if you want the user zoom-in and zoom-out
+          hidden: true,
+          // put it true if you want to show CircularProgressIndicator while waiting for the page to load
+
+//          appBar: AppBar(
+//            title: Text("Same Day Rush Printing"),
+//            centerTitle: false,
+//            elevation: 1,
+//            // give the appbar shadows
+//            iconTheme: IconThemeData(color: Colors.white),
+//            actions: <Widget>[
+//              IconButton(
+//                icon: Icon(Icons.close),
+//                onPressed: () => SystemNavigator.pop(),
+//              )
+//            ], // make the icons colors inside appbar with white color
+//          ),
+          initialChild: Container(
+            color: Colors.white,
+            child: const Center(
+              child: CircularProgressIndicator(),
+            ),
+          )
+      ),
     );
   }
 }
