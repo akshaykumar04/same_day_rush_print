@@ -1,15 +1,23 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'UI/WebView.dart';
+import 'ui/sign_in.dart';
+import 'ui/sign_up.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-void main() {
+import 'ui/web_view.dart';
+
+Future<void> main() async {
   runApp(new MaterialApp(
     home: new SplashScreen(),
     routes: <String, WidgetBuilder>{
-      '/HomeScreen': (BuildContext context) => new WebView()
+      '/Login': (BuildContext context) => new LoginPage(),
+      '/Home' : (BuildContext context) => new WebView(),
     },
   ));
+
 }
+
+
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -17,18 +25,33 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+
+
   startTime() async {
-    var _duration = new Duration(seconds: 3);
-    return new Timer(_duration, navigationPage);
+    if (await FirebaseAuth.instance.currentUser() != null) {
+      var _duration = new Duration(seconds: 3);
+      return new Timer(_duration, navigationHome);
+      // signed in
+    } else {
+      var _duration = new Duration(seconds: 3);
+      return new Timer(_duration, navigationLogin);
+
+    }
+
   }
 
-  void navigationPage() {
-    Navigator.of(context).pushReplacementNamed('/HomeScreen');
+  void navigationHome() {
+    Navigator.of(context).pushReplacementNamed('/Home');
+  }
+
+  void navigationLogin() {
+    Navigator.of(context).pushReplacementNamed('/Login');
   }
 
   @override
   void initState() {
     super.initState();
+
     startTime();
   }
 
@@ -40,4 +63,8 @@ class _SplashScreenState extends State<SplashScreen> {
       ),
     );
   }
+  
+  
+
+
 }
