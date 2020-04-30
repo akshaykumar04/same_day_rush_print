@@ -20,15 +20,16 @@
   <component name="PropertiesComponent">
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/android/app" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\PixelBot\FlutterProjects\same_day_rush_print\android\app" />
+      <recent name="C:\Users\PixelBot\FlutterProjects\same_day_rush_print\images" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\PixelBot\FlutterProjects\same_day_rush_print\lib\images" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\PixelBot\FlutterProjects\same_day_rush_print\images" />
     </key>
   </component>
   <component name="RunDashboard">
