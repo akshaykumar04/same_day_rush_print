@@ -1,9 +1,11 @@
 import 'dart:async';
 import 'dart:ui';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+
 
 class WebView extends StatefulWidget {
   @override
@@ -48,8 +50,47 @@ class _WebViewState extends State<WebView> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: WebviewScaffold(
+    return new Scaffold(
+      appBar: AppBar(
+
+        backgroundColor: Colors.white,
+        title: Text(
+          "Same Day Rush Printing",
+          style: TextStyle(color: Colors.blue),
+        ),
+        centerTitle: false,
+        elevation: 1,
+        // give the appbar shadows
+        iconTheme: IconThemeData(color: Colors.white),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.bookmark_border, color: Colors.lightBlue,),
+            tooltip: "Past Orders",
+            //onPressed: () => SystemNavigator.pop(),
+          ),
+          PopupMenuButton<int>(
+              onSelected: (selected) {},
+              icon: Icon(Icons.more_vert, color: Colors.lightBlue,),
+              itemBuilder: (BuildContext context) {
+            return[
+              PopupMenuItem(
+                
+                child: GestureDetector(
+                  onTap: (){
+                    SystemNavigator.pop();
+                  },
+                  child: Text('Logout', style: TextStyle(color: Colors.lightBlue)),
+                ),
+              ),
+
+
+            ];
+
+          }),
+          
+        ], // make the icons colors inside appbar with white color
+      ),
+      body: WebviewScaffold(
           url: url,
           withJavascript: true,
           // run javascript
@@ -58,67 +99,9 @@ class _WebViewState extends State<WebView> {
           hidden: true,
           // put it true if you want to show CircularProgressIndicator while waiting for the page to load
 
-          appBar: AppBar(
-            backgroundColor: Colors.white,
-            title: Text(
-              "Same Day Rush Printing",
-              style: TextStyle(color: Colors.blue),
-            ),
-            centerTitle: false,
-            elevation: 1,
-            // give the appbar shadows
-            iconTheme: IconThemeData(color: Colors.white),
-            actions: <Widget>[
-              IconButton(
-                icon: Icon(Icons.input),
-                color: Colors.blue,
-                tooltip: "Logout",
-                onPressed: () => SystemNavigator.pop(),
-              )
-//            InkWell(
-//              child: Icon(Icons.close),
-//              onTap: () =>{
-//                SystemNavigator.pop()
-//              }
-//                // flutterWebviewPlugin.reloadUrl(); // if you want to reload another url
-//            ),
-//
-//            InkWell(
-//              child: Icon(Icons.close),
-//              onTap: (){
-//                flutterWebviewPlugin.stopLoading(); // stop loading the url
-//              },
-//            ),
-//
-//            InkWell(
-//              child: Icon(Icons.remove_red_eye),
-//              onTap: (){
-//                flutterWebviewPlugin.show(); // appear the webview widget
-//              },
-//            ),
-//
-//            InkWell(
-//              child: Icon(Icons.close),
-//              onTap: (){
-//                flutterWebviewPlugin.hide(); // hide the webview widget
-//              },
-//            ),
-//
-//            InkWell(
-//              child: Icon(Icons.arrow_back),
-//              onTap: (){
-//                flutterWebviewPlugin.goBack(); // for going back
-//              },
-//            ),
-//
-//            InkWell(
-//              child: Icon(Icons.forward),
-//              onTap: (){
-//                flutterWebviewPlugin.goForward(); // for going forward
-//              },
-//            ),
-            ], // make the icons colors inside appbar with white color
-          ),
+
+
+
           initialChild: Container(
             color: Colors.white,
             child: const Center(
