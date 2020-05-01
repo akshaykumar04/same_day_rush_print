@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'package:samedayrushprint/pages/login_signup_page.dart';
+import 'package:samedayrushprint/pages/past_orders.dart';
 import 'package:samedayrushprint/pages/placeholder.dart';
 
 class WebView extends StatefulWidget {
@@ -113,10 +114,19 @@ class _WebViewState extends State<WebView> {
           ),
           BottomNavigationBarItem(
             icon: GestureDetector(
-                onTap: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => LoginSignupPage())),
+                onTap: () => Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => PastOrders()),
+                    ModalRoute.withName("/orders")),
                 child: Icon(Icons.shopping_cart)),
-            title: Text('Orders'),
+            title: GestureDetector(
+                onTap: () => Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => PastOrders()),
+                    ModalRoute.withName("/orders")),
+                child: Text('Orders')),
           ),
           BottomNavigationBarItem(
               icon: GestureDetector(
