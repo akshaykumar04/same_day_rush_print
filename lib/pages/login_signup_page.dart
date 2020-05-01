@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:samedayrushprint/ui/web_view.dart';
 
 import '../services/authentication.dart';
 
@@ -92,7 +93,54 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
         appBar: new AppBar(
-          title: new Text('Same Day Rush'),
+          leading: new Image.asset('images/logo.png'),
+          backgroundColor: Colors.white,
+          title: Text(
+            "Login/Signup",
+            style: TextStyle(color: Colors.blue),
+          ),
+          centerTitle: false,
+          elevation: 1,
+          // give the appbar shadows
+          iconTheme: IconThemeData(color: Colors.white),
+        ),
+        bottomNavigationBar: new BottomNavigationBar(
+//        onTap: onTabTapped,
+//
+//        currentIndex: _currentIndex,
+          items: [
+            BottomNavigationBarItem(
+              icon: GestureDetector(
+                  onTap: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => WebView())),
+                  child: Icon(
+                    Icons.home,
+                    color: Colors.black45,
+                  )),
+              title: GestureDetector(
+                  onTap: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => WebView())),
+                  child: Text('Home', style: TextStyle(color: Colors.black45),)),
+            ),
+            BottomNavigationBarItem(
+                icon: GestureDetector(
+                    onTap: () => Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => LoginSignupPage()),
+                        ModalRoute.withName("/web")),
+                    child: Icon(
+                      Icons.shopping_cart,color: Colors.black45,
+                    )),
+                title: Text('Orders')),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.person,
+                color: Colors.blue,
+              ),
+              title: Text('Profile', style: TextStyle(color: Colors.blue),),
+            )
+          ],
         ),
         body: Stack(
           children: <Widget>[
