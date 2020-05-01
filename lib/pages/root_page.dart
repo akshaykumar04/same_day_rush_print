@@ -4,7 +4,6 @@ import '../services/authentication.dart';
 import 'home_page.dart';
 import 'login_signup_page.dart';
 
-
 enum AuthStatus {
   NOT_DETERMINED,
   NOT_LOGGED_IN,
@@ -78,7 +77,7 @@ class _RootPageState extends State<RootPage> {
         );
         break;
       case AuthStatus.LOGGED_IN:
-        if (_userId.length > 0 && _userId != null) {
+        if (_userId.length > 0 && _userId != null)  {
           return new HomePage(
             userId: _userId,
             auth: widget.auth,

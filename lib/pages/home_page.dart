@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../services/authentication.dart';
 import '../ui/web_view.dart';
-import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.auth, this.userId, this.logoutCallback})
@@ -111,6 +110,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
+        backgroundColor: Colors.white,
         title: new Text('Same Day Rush'),
         actions: <Widget>[
           new FlatButton(
