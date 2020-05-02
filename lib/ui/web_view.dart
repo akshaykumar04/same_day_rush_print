@@ -115,7 +115,7 @@ class _WebViewState extends State<WebView> {
               icon: GestureDetector(
                   onTap: navigateProfile, child: Icon(Icons.person)),
               title:
-                  GestureDetector(onTap: navigateProfile, child: Text('Login')))
+                  GestureDetector(onTap: navigateProfile, child: Text('Profile')))
         ],
       ),
       body: WebviewScaffold(
@@ -137,4 +137,6 @@ class _WebViewState extends State<WebView> {
           )),
     );
   }
+
+
 }
