@@ -69,39 +69,6 @@ class _WebViewState extends State<WebView> {
         elevation: 1,
         // give the appbar shadows
         iconTheme: IconThemeData(color: Colors.white),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(
-              Icons.history,
-              color: Colors.lightBlue,
-            ),
-            tooltip: "Past Orders",
-            //onPressed: () => SystemNavigator.pop(),
-          ),
-          IconButton(
-            icon: Icon(
-              Icons.input,
-              color: Colors.lightBlue,
-            ),
-            onPressed: () => SystemNavigator.pop(),
-          )
-//          PopupMenuButton<int>(
-//              onSelected: (selected) {},
-//              icon: Icon(Icons.more_vert, color: Colors.lightBlue,),
-//              itemBuilder: (BuildContext context) {
-//            return[
-//              PopupMenuItem(
-//
-//                child: GestureDetector(
-//                  onTap: (){
-//                    _showoOrdersDialog();
-//                  },
-//                  child: Text('Logout', style: TextStyle(color: Colors.lightBlue)),
-//                ),
-//              ),
-//            ];
-//          }),
-        ], // make the icons colors inside appbar with white color
       ),
       bottomNavigationBar: new BottomNavigationBar(
 //        onTap: onTabTapped,
