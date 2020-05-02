@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:samedayrushprint/pages/login_signup_page.dart';
+import 'package:samedayrushprint/pages/root_page.dart';
+import 'package:samedayrushprint/services/authentication.dart';
 import 'package:samedayrushprint/ui/web_view.dart';
 
 class PastOrders extends StatelessWidget {
@@ -46,14 +48,14 @@ class PastOrders extends StatelessWidget {
           ),
           BottomNavigationBarItem(
             icon: GestureDetector( onTap: () => Navigator.push(context,
-                MaterialPageRoute(builder: (context) => LoginSignupPage())),
+                MaterialPageRoute(builder: (context) => RootPage(auth: new Auth(),))),
               child: Icon(
                 Icons.person,
                 color: Colors.black45,
               ),
             ),
             title: GestureDetector(onTap: () => Navigator.push(context,
-                MaterialPageRoute(builder: (context) => LoginSignupPage())),
+                MaterialPageRoute(builder: (context) => RootPage(auth: new Auth(),))),
                 child: Text('Profile', style: TextStyle(color: Colors.black45),)),
           )
         ],

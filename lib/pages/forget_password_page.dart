@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:samedayrushprint/pages/login_signup_page.dart';
 import 'package:samedayrushprint/pages/past_orders.dart';
 import 'package:samedayrushprint/ui/web_view.dart';
 
@@ -66,7 +67,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
   }
 
   void takeToLoginPage() {
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginSignupPage()));
   }
 
   void resetForm() {

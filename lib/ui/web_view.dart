@@ -3,13 +3,19 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
-import 'package:samedayrushprint/pages/login_signup_page.dart';
 import 'package:samedayrushprint/pages/past_orders.dart';
 import 'package:samedayrushprint/pages/placeholder.dart';
+import 'package:samedayrushprint/pages/root_page.dart';
+import 'package:samedayrushprint/services/authentication.dart';
 
 class WebView extends StatefulWidget {
+  WebView({Key key, this.auth, this.logoutCallback, this.profileCallback});
+
+  final BaseAuth auth;
+  VoidCallback profileCallback;
+  VoidCallback logoutCallback;
+
   @override
   _WebViewState createState() => _WebViewState();
   int _currentIndex = 0;
@@ -55,6 +61,8 @@ class _WebViewState extends State<WebView> {
         .dispose(); // disposing the webview widget to avoid any leaks
   }
 
+
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -96,19 +104,9 @@ class _WebViewState extends State<WebView> {
                 child: Text('Orders')),
           ),
           BottomNavigationBarItem(
-              icon: GestureDetector(
-                  onTap: () => Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => LoginSignupPage()),
-                      ModalRoute.withName("/web")),
+              icon: GestureDetector( onTap: navigateProfile,
                   child: Icon(Icons.person)),
-              title: GestureDetector(
-                  onTap: () => Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => LoginSignupPage()),
-                      ModalRoute.withName("/web")),
+              title: GestureDetector( onTap: navigateProfile,
                   child: Text('Login')))
         ],
       ),
@@ -129,5 +127,15 @@ class _WebViewState extends State<WebView> {
             ),
           )),
     );
+  }
+
+  void navigateProfile() {
+    Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(
+            builder: (context) => RootPage()),
+        ModalRoute.withName("/profile"));
+    widget.profileCallback();
+
   }
 }

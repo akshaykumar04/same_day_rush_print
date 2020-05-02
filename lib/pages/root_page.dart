@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:samedayrushprint/pages/profile_page.dart';
 
 import '../services/authentication.dart';
 import 'home_page.dart';
@@ -8,6 +9,7 @@ enum AuthStatus {
   NOT_DETERMINED,
   NOT_LOGGED_IN,
   LOGGED_IN,
+  LOGGED_IN_PROFILE,
 }
 
 class RootPage extends StatefulWidget {
@@ -55,6 +57,19 @@ class _RootPageState extends State<RootPage> {
     });
   }
 
+  void profileCallback(){
+    widget.auth.getCurrentUser().then((user) {
+      setState(() {
+        _userId = user.uid.toString();
+      });
+    });
+    setState(() {
+      authStatus = AuthStatus.LOGGED_IN_PROFILE;
+    });
+  }
+
+
+
   Widget buildWaitingScreen() {
     return Scaffold(
       body: Container(
@@ -76,6 +91,12 @@ class _RootPageState extends State<RootPage> {
           loginCallback: loginCallback,
         );
         break;
+      case AuthStatus.LOGGED_IN_PROFILE:
+        return new Profile(
+          auth: widget.auth,
+          profileCallback: profileCallback,
+        );
+        break;
       case AuthStatus.LOGGED_IN:
         if (_userId.length > 0 && _userId != null)  {
           return new HomePage(
@@ -83,7 +104,8 @@ class _RootPageState extends State<RootPage> {
             auth: widget.auth,
             logoutCallback: logoutCallback,
           );
-        } else
+        }
+        else
           return buildWaitingScreen();
         break;
       default:
