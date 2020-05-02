@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:samedayrushprint/pages/past_orders.dart';
 import 'package:samedayrushprint/ui/web_view.dart';
 
 import '../services/authentication.dart';
@@ -124,15 +125,14 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
             ),
             BottomNavigationBarItem(
                 icon: GestureDetector(
-                    onTap: () => Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => LoginSignupPage()),
-                        ModalRoute.withName("/web")),
+                    onTap: () => Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => PastOrders())),
                     child: Icon(
                       Icons.shopping_cart,color: Colors.black45,
                     )),
-                title: Text('Orders')),
+                title: GestureDetector(onTap: () => Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => PastOrders())),
+                    child: Text('Orders'))),
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.person,
