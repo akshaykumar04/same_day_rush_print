@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'pages/root_page.dart';
 import 'services/authentication.dart';
 
-import 'ui/web_view.dart';
+import 'pages/web_view.dart';
 
 Future<void> main() async {
   runApp(new MaterialApp(

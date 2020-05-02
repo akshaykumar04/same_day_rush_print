@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:samedayrushprint/pages/profile_page.dart';
 
 import '../services/authentication.dart';
-import 'home_page.dart';
+import 'check_email_verified_page.dart';
 import 'login_signup_page.dart';
 
 enum AuthStatus {

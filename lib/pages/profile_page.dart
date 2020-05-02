@@ -3,7 +3,7 @@ import 'package:samedayrushprint/pages/past_orders.dart';
 import 'package:samedayrushprint/pages/root_page.dart';
 
 import '../services/authentication.dart';
-import '../ui/web_view.dart';
+import 'web_view.dart';
 
 class Profile extends StatefulWidget {
   Profile(

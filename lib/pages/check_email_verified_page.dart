@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../services/authentication.dart';
-import '../ui/web_view.dart';
+import 'web_view.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.auth, this.userId, this.logoutCallback})

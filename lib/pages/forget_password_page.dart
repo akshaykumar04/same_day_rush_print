@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:samedayrushprint/pages/login_signup_page.dart';
 import 'package:samedayrushprint/pages/past_orders.dart';
-import 'package:samedayrushprint/ui/web_view.dart';
+import 'file:///C:/Users/PixelBot/FlutterProjects/same_day_rush_print/lib/pages/web_view.dart';
 
 import '../services/authentication.dart';
-import '../ui/sign_in.dart';
 
 class ForgetPassword extends StatefulWidget {
   ForgetPassword({this.auth, this.loginCallback});

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:samedayrushprint/pages/past_orders.dart';
-import 'package:samedayrushprint/ui/web_view.dart';
+import 'file:///C:/Users/PixelBot/FlutterProjects/same_day_rush_print/lib/pages/web_view.dart';
 
 import '../services/authentication.dart';
-import '../ui/forget_password.dart';
+import 'forget_password.dart';
 
 class LoginSignupPage extends StatefulWidget {
   LoginSignupPage({this.auth, this.loginCallback});

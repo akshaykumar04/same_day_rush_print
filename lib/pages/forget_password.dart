@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:samedayrushprint/pages/login_signup_page.dart';
 
-import 'sign_in.dart';
 
 class ForgetPasswordPage extends StatefulWidget {
   @override
@@ -47,7 +47,7 @@ class _ForgetPasswordPage extends State<ForgetPasswordPage> {
       _formKey.currentState.save();
       try{
         await FirebaseAuth.instance.sendPasswordResetEmail(email: _email);
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginSignupPage()));
       }catch(e){
         print(e.message);
       }

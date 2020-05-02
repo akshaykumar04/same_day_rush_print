@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:samedayrushprint/pages/profile_page.dart';
 import 'package:samedayrushprint/pages/root_page.dart';
 import 'package:samedayrushprint/services/authentication.dart';
-import 'package:samedayrushprint/ui/web_view.dart';
+import 'file:///C:/Users/PixelBot/FlutterProjects/same_day_rush_print/lib/pages/web_view.dart';
 
 class PastOrders extends StatelessWidget {
   PastOrders({Key key, this.auth, this.logoutCallback, this.profileCallback});
