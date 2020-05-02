@@ -5,13 +5,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
-import 'package:samedayrushprint/pages/login_signup_page.dart';
 import 'package:samedayrushprint/pages/past_orders.dart';
-import 'package:samedayrushprint/pages/placeholder.dart';
 import 'package:samedayrushprint/pages/profile_page.dart';
 import 'package:samedayrushprint/pages/root_page.dart';
 import 'package:samedayrushprint/services/authentication.dart';
 
+// ignore: must_be_immutable
 class WebView extends StatefulWidget {
   WebView({Key key, this.auth, this.logoutCallback, this.profileCallback});
 
@@ -21,11 +20,6 @@ class WebView extends StatefulWidget {
 
   @override
   _WebViewState createState() => _WebViewState();
-  int _currentIndex = 0;
-  final List<Widget> _children = [
-    PlaceholderWidget(Colors.deepOrange),
-    PlaceholderWidget(Colors.green)
-  ];
 }
 
 class _WebViewState extends State<WebView> {
@@ -68,15 +62,13 @@ class _WebViewState extends State<WebView> {
     if (await FirebaseAuth.instance.currentUser() != null) {
       Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(
-              builder: (context) => Profile(auth: new Auth())),
+          MaterialPageRoute(builder: (context) => Profile(auth: new Auth())),
           ModalRoute.withName("/profile"));
-    // signed in
+      // signed in
     } else {
       Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(
-              builder: (context) => RootPage(auth: new Auth())),
+          MaterialPageRoute(builder: (context) => RootPage(auth: new Auth())),
           ModalRoute.withName("/login"));
     }
   }
@@ -109,23 +101,21 @@ class _WebViewState extends State<WebView> {
             icon: GestureDetector(
                 onTap: () => Navigator.pushAndRemoveUntil(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) => PastOrders()),
+                    MaterialPageRoute(builder: (context) => PastOrders()),
                     ModalRoute.withName("/orders")),
                 child: Icon(Icons.shopping_cart)),
             title: GestureDetector(
                 onTap: () => Navigator.pushAndRemoveUntil(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) => PastOrders()),
+                    MaterialPageRoute(builder: (context) => PastOrders()),
                     ModalRoute.withName("/orders")),
                 child: Text('Orders')),
           ),
           BottomNavigationBarItem(
-              icon: GestureDetector( onTap: navigateProfile,
-                  child: Icon(Icons.person)),
-              title: GestureDetector( onTap: navigateProfile,
-                  child: Text('Login')))
+              icon: GestureDetector(
+                  onTap: navigateProfile, child: Icon(Icons.person)),
+              title:
+                  GestureDetector(onTap: navigateProfile, child: Text('Login')))
         ],
       ),
       body: WebviewScaffold(
@@ -133,7 +123,8 @@ class _WebViewState extends State<WebView> {
           withJavascript: true,
           // run javascript
           withZoom: false,
-          userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.106 Safari/537.36",
+          userAgent:
+              "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.106 Safari/537.36",
           // if you want the user zoom-in and zoom-out
           hidden: true,
           // put it true if you want to show CircularProgressIndicator while waiting for the page to load
