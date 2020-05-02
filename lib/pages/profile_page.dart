@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:samedayrushprint/pages/past_orders.dart';
 import '../services/authentication.dart';
 import '../ui/web_view.dart';
 
@@ -49,6 +50,44 @@ class _HomePageState extends State<Profile> {
         elevation: 1,
         // give the appbar shadows
         iconTheme: IconThemeData(color: Colors.white),
+      ),
+
+      bottomNavigationBar: new BottomNavigationBar(
+//        onTap: onTabTapped,
+//
+//        currentIndex: _currentIndex,
+        items: [
+          BottomNavigationBarItem(
+            icon: GestureDetector(
+                onTap: () => Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => WebView())),
+                child: Icon(
+                  Icons.home,
+                  color: Colors.black45,
+                )),
+            title: GestureDetector(
+                onTap: () => Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => WebView())),
+                child: Text('Home', style: TextStyle(color: Colors.black45),)),
+          ),
+          BottomNavigationBarItem(
+              icon: GestureDetector(
+                  onTap: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => PastOrders())),
+                  child: Icon(
+                    Icons.shopping_cart,color: Colors.black45,
+                  )),
+              title: GestureDetector(onTap: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => PastOrders())),
+                  child: Text('Orders'))),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.person,
+              color: Colors.blue,
+            ),
+            title: Text('Profile', style: TextStyle(color: Colors.blue),),
+          )
+        ],
       ),
 
       body: new Container(

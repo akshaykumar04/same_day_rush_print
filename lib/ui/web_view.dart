@@ -1,11 +1,14 @@
 import 'dart:async';
 import 'dart:ui';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import 'package:samedayrushprint/pages/login_signup_page.dart';
 import 'package:samedayrushprint/pages/past_orders.dart';
 import 'package:samedayrushprint/pages/placeholder.dart';
+import 'package:samedayrushprint/pages/profile_page.dart';
 import 'package:samedayrushprint/pages/root_page.dart';
 import 'package:samedayrushprint/services/authentication.dart';
 
@@ -61,7 +64,22 @@ class _WebViewState extends State<WebView> {
         .dispose(); // disposing the webview widget to avoid any leaks
   }
 
-
+  Future<void> navigateProfile() async {
+    if (await FirebaseAuth.instance.currentUser() != null) {
+      Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(
+              builder: (context) => Profile(auth: new Auth())),
+          ModalRoute.withName("/profile"));
+    // signed in
+    } else {
+      Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(
+              builder: (context) => RootPage(auth: new Auth())),
+          ModalRoute.withName("/login"));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -127,15 +145,5 @@ class _WebViewState extends State<WebView> {
             ),
           )),
     );
-  }
-
-  void navigateProfile() {
-    Navigator.pushAndRemoveUntil(
-        context,
-        MaterialPageRoute(
-            builder: (context) => RootPage()),
-        ModalRoute.withName("/profile"));
-    widget.profileCallback();
-
   }
 }
