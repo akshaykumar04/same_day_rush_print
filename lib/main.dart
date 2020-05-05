@@ -58,7 +58,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return new Scaffold(
       body: new Center(
         child: Padding(
-          padding: EdgeInsets.fromLTRB(25.0, 25.0, 25.0, 25.0),
+          padding: EdgeInsets.fromLTRB(40.0, 25.0, 40.0, 25.0),
           child: new Image.asset('images/sameday.png'),
         )
       ),

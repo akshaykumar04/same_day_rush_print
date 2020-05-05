@@ -46,6 +46,7 @@ class _RootPageState extends State<RootPage> {
       });
     });
     setState(() {
+      _showDisclaimerDialog();
       authStatus = AuthStatus.LOGGED_IN;
     });
   }
@@ -68,7 +69,27 @@ class _RootPageState extends State<RootPage> {
     });
   }
 
-
+  void _showDisclaimerDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        // return object of type Dialog
+        return AlertDialog(
+          title: new Text("Login Disclaimer"),
+          content:
+          new Text("The app account is different from website account."),
+          actions: <Widget>[
+            new FlatButton(
+              child: new Text("Dismiss"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   Widget buildWaitingScreen() {
     return Scaffold(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:samedayrushprint/pages/past_orders.dart';
-import 'file:///C:/Users/PixelBot/FlutterProjects/same_day_rush_print/lib/pages/web_view.dart';
+import 'web_view.dart';
 
 import '../services/authentication.dart';
 import 'forget_password.dart';
@@ -20,7 +20,6 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
 
   String _email;
   String _password;
-  String _errorMessage;
 
   bool _isLoginForm;
   bool _isLoading;
@@ -38,7 +37,6 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
   // Perform login or signup
   void validateAndSubmit() async {
     setState(() {
-      _errorMessage = "";
       _isLoading = true;
     });
     if (validateAndSave()) {
@@ -56,7 +54,6 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
         setState(() {
           _isLoading = false;
         });
-
         if (userId.length > 0 && userId != null && _isLoginForm) {
           widget.loginCallback();
         }
@@ -64,7 +61,7 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
         print('Error: $e');
         setState(() {
           _isLoading = false;
-          _errorMessage = e.message;
+          showErrorDialog(e.message);
           _formKey.currentState.reset();
         });
       }
@@ -73,7 +70,6 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
 
   @override
   void initState() {
-    _errorMessage = "";
     _isLoading = false;
     _isLoginForm = true;
     super.initState();
@@ -85,7 +81,6 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
   }
   void resetForm() {
     _formKey.currentState.reset();
-    _errorMessage = "";
   }
 
   void toggleFormMode() {
@@ -201,26 +196,33 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
               showPasswordInput(),
               showPrimaryButton(),
               showSecondaryButton(),
-              showForgotPasswordButton(),
-              showErrorMessage(),
+              showForgotPasswordButton()
             ],
           ),
         ));
   }
 
-  Widget showErrorMessage() {
+  void showErrorDialog(String _errorMessage) {
     if (_errorMessage.length > 0 && _errorMessage != null) {
-      return new Text(
-        _errorMessage,
-        style: TextStyle(
-            fontSize: 13.0,
-            color: Colors.red,
-            height: 1.0,
-            fontWeight: FontWeight.w300),
-      );
-    } else {
-      return new Container(
-        height: 0.0,
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          // return object of type Dialog
+          return AlertDialog(
+            title: new Text("Error"),
+            content:
+            new Text(_errorMessage),
+            actions: <Widget>[
+              new FlatButton(
+                child: new Text("Dismiss"),
+                onPressed: () {
+                  toggleFormMode();
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
       );
     }
   }

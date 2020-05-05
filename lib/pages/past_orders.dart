@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:samedayrushprint/pages/profile_page.dart';
 import 'package:samedayrushprint/pages/root_page.dart';
 import 'package:samedayrushprint/services/authentication.dart';
-import 'file:///C:/Users/PixelBot/FlutterProjects/same_day_rush_print/lib/pages/web_view.dart';
+import 'web_view.dart';
 
 class PastOrders extends StatelessWidget {
   PastOrders({Key key, this.auth, this.logoutCallback, this.profileCallback});
@@ -96,12 +96,16 @@ class PastOrders extends StatelessWidget {
       ),
       body: new Container(
         alignment: Alignment.center,
-        child: new Text(
-          "Past Orders Status coming soon in next update!",
-          textDirection: TextDirection.ltr,
-          style: new TextStyle(
-              color: Colors.blue, fontWeight: FontWeight.w900, fontSize: 18.3),
-        ),
+        child:Padding(
+          padding: EdgeInsets.fromLTRB(40.0, 25.0, 40.0, 25.0),
+          child: new Text(
+            "Orders Status coming soon in next update!",
+            textDirection: TextDirection.ltr,
+            style: new TextStyle(
+                color: Colors.blue, fontWeight: FontWeight.w600, fontSize: 18.3),
+          ),
+        )
+
       ),
     );
   }

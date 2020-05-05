@@ -48,7 +48,7 @@ class _HomePageState extends State<Profile> {
     return new Hero(
       tag: 'hero',
       child: Padding(
-        padding: EdgeInsets.fromLTRB(0.0, 70.0, 0.0, 0.0),
+        padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
         child: CircleAvatar(
           backgroundColor: Colors.transparent,
           radius: 48.0,
@@ -129,15 +129,6 @@ class _HomePageState extends State<Profile> {
               child: Center(
                 child: Text(
                   'App Version: 1.0',
-                  style: TextStyle(color: Colors.black, fontSize: 16.0,),
-                ),
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.only(top: 20.0),
-              child: Center(
-                child: Text(
-                  'Developed by: sstechcanada',
                   style: TextStyle(color: Colors.black, fontSize: 16.0,),
                 ),
               ),
