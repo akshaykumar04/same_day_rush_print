@@ -40,15 +40,7 @@ class _RootPageState extends State<RootPage> {
   }
 
   void loginCallback() {
-    widget.auth.getCurrentUser().then((user) {
-      setState(() {
-        _userId = user.uid.toString();
-      });
-    });
-    setState(() {
-      _showDisclaimerDialog();
-      authStatus = AuthStatus.LOGGED_IN;
-    });
+    _showDisclaimerDialog();
   }
 
   void logoutCallback() {
@@ -72,6 +64,7 @@ class _RootPageState extends State<RootPage> {
   void _showDisclaimerDialog() {
     showDialog(
       context: context,
+      barrierDismissible: false,
       builder: (BuildContext context) {
         // return object of type Dialog
         return AlertDialog(
@@ -82,7 +75,14 @@ class _RootPageState extends State<RootPage> {
             new FlatButton(
               child: new Text("Dismiss"),
               onPressed: () {
-                Navigator.of(context).pop();
+                widget.auth.getCurrentUser().then((user) {
+                  setState(() {
+                    _userId = user.uid.toString();
+                  });
+                });
+                setState(() {
+                  authStatus = AuthStatus.LOGGED_IN;
+                });
               },
             ),
           ],
