@@ -33,16 +33,16 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\PixelBot\FlutterProjects\same_day_rush_print\images" />
-      <recent name="C:\Users\PixelBot\FlutterProjects\same_day_rush_print\lib\services" />
-      <recent name="C:\Users\PixelBot\FlutterProjects\same_day_rush_print\lib\models" />
-      <recent name="C:\Users\PixelBot\FlutterProjects\same_day_rush_print\lib\pages" />
-      <recent name="C:\Users\PixelBot\FlutterProjects\same_day_rush_print\android\app" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\PixelBot\FlutterProjects\same_day_rush_print\lib\pages" />
       <recent name="C:\Users\PixelBot\FlutterProjects\same_day_rush_print\lib\images" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\PixelBot\FlutterProjects\same_day_rush_print\android\app\src\main\res" />
+      <recent name="C:\Users\PixelBot\FlutterProjects\same_day_rush_print\ios\Runner\Assets.xcassets\AppIcon.appiconset" />
+      <recent name="C:\Users\PixelBot\FlutterProjects\same_day_rush_print\images" />
+      <recent name="C:\Users\PixelBot\FlutterProjects\same_day_rush_print\lib\services" />
+      <recent name="C:\Users\PixelBot\FlutterProjects\same_day_rush_print\lib\models" />
     </key>
   </component>
   <component name="RunDashboard">
