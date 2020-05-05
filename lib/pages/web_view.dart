@@ -9,7 +9,6 @@ import 'package:samedayrushprint/pages/past_orders.dart';
 import 'package:samedayrushprint/pages/profile_page.dart';
 import 'package:samedayrushprint/pages/root_page.dart';
 import 'package:samedayrushprint/services/authentication.dart';
-import 'package:samedayrushprint/services/firebase_notification_handler.dart';
 
 // ignore: must_be_immutable
 class WebView extends StatefulWidget {
@@ -33,7 +32,6 @@ class _WebViewState extends State<WebView> {
   @override
   void initState() {
     // TODO: implement initState
-    new FirebaseNotifications().setUpFirebase();
     super.initState();
     _onchanged =
         flutterWebviewPlugin.onStateChanged.listen((WebViewStateChanged state) {
@@ -116,8 +114,8 @@ class _WebViewState extends State<WebView> {
           BottomNavigationBarItem(
               icon: GestureDetector(
                   onTap: navigateProfile, child: Icon(Icons.person)),
-              title:
-                  GestureDetector(onTap: navigateProfile, child: Text('Profile')))
+              title: GestureDetector(
+                  onTap: navigateProfile, child: Text('Profile')))
         ],
       ),
       body: WebviewScaffold(
@@ -139,6 +137,4 @@ class _WebViewState extends State<WebView> {
           )),
     );
   }
-
-
 }
